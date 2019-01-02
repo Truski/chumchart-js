@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Question } from './question';
 import { Answer } from './answer';
+import { QuestionsService } from '../questions.service';
 
 enum State {
   Name,
@@ -23,12 +24,10 @@ export class QuizComponent implements OnInit {
   moralTotal = 0;
   ethicTotal = 0;
 
-  constructor() { }
+  constructor(private questionsService: QuestionsService) { }
 
   ngOnInit() {
-    const answer: Answer = {text: 'Yo you look just like this kid I think i saw on a buster rhymes video.', moral: 2, ethic: 3};
-    const answer2: Answer = { text: 'Dang', moral: 2, ethic: 3};
-    this.questions = [{text: 'How many fingers?', answers: [answer, answer2]}];
+    this.questions = this.questionsService.getQuestions();
     this.currentQuestion = this.questions[this.currentQuestionIndex];
   }
 
