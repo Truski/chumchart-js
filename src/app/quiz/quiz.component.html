@@ -1,0 +1,40 @@
+<div class="box has-text-centered">
+  <div *ngIf="inNameState()">
+    <h1 class="title is-2">
+      What is your name?
+    </h1>
+    <div class="field is-narrow">
+      <div class="control">
+        <input [(ngModel)]="name" class="input is-large is-rounded" type="text" placeholder="Truski Jenkins" />
+      </div>
+    </div>
+    <a (click)="onClickContinue()" class="button is-large is-primary">Continue</a>
+  </div>
+  <div *ngIf="inQuestionsState()">
+    <h1 class="title is-4">{{currentQuestion.text}}</h1>
+    <ul>
+      <a (click)="submitAnswer(answer)" *ngFor="let answer of currentQuestion.answers">
+        <li class="answer">
+          {{answer.text}}
+        </li>
+      </a>
+    </ul>
+  </div>
+  <div *ngIf="inImageState()">
+    <p>You're almost done!</p>
+    <h1 class="title is-3">Just upload an image of yourself!</h1>
+    <div class="file is-boxed filebox">
+      <label class="file-label">
+        <input class="file-input" type="file" (change)="onFileChanged($event)" />
+        <span class="file-cta">
+          <span class="file-icon">
+            <i class="fas fa-upload"></i>
+          </span>
+          <span class="file-label">
+            Choose a file…
+          </span>
+        </span>
+      </label>
+    </div>
+  </div>
+</div>
