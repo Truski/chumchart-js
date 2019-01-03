@@ -2,3 +2,9 @@
     border: none;
     outline: none;
 }
+
+.codeinput {
+    width: 7em;
+    display: block;
+    margin: 1em 0;
+}

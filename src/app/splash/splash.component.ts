@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { routerNgProbeToken } from '@angular/router/src/router_module';
+import { QuizComponent } from '../quiz/quiz.component';
 
 @Component({
   selector: 'app-splash',
@@ -10,7 +13,7 @@ export class SplashComponent implements OnInit {
   showingInput = false;
   quizCode: string;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -20,7 +23,11 @@ export class SplashComponent implements OnInit {
   }
 
   showCodeInput(): void {
-    this.showingInput = true;
+    this.showingInput = !this.showingInput;
+  }
+
+  onClickStartQuiz(): void {
+    this.router.navigate(['quiz', this.quizCode]);
   }
 
 }

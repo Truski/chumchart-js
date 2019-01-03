@@ -15,8 +15,8 @@
         Existing</a>
     </div>
     <div *ngIf="showingInput">
-      <input [(ngModel)]="quizCode" class="input is-large is-rounded is-narrow" type="text" placeholder="Chart Code" autofocus/>
-      <a routerLink="/quiz" class="button is-light is-inverted is-outlined is-large">Start Quiz</a>
+      <input [(ngModel)]="quizCode" class="codeinput input is-large is-rounded is-narrow" type="text" autofocus maxlength="5" placeholder="Chart Code" autofocus/>
+      <a (click)="onClickStartQuiz()" class="button is-light is-inverted is-outlined is-large">Start Quiz</a>
     </div>
   </div>
 </div>

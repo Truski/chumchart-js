@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 import { Question } from './question';
 import { Answer } from './answer';
@@ -36,9 +36,13 @@ export class QuizComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private route: ActivatedRoute,
     private questionsService: QuestionsService,
     private quizService: QuizService
-  ) { }
+  ) {
+    this.chartCode = this.route.snapshot.paramMap.get('code');
+    console.log(this.chartCode);
+  }
 
   ngOnInit() {
     // this.questions = this.questionsService.getQuestions();
@@ -108,7 +112,8 @@ export class QuizComponent implements OnInit {
       name: this.name,
       moral: this.moralTotal,
       ethic: this.ethicTotal,
-      image: this.image
+      image: this.image,
+      chartCode: this.chartCode
     }).subscribe(response => {
       if (response.isLastPerson) {
         this.router.navigate(['/chart', response.chartCode]);

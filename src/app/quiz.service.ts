@@ -16,7 +16,7 @@ export class QuizService {
     uploadData.append('name', quiz.name);
     uploadData.append('moral', this.normalize(quiz.moral));
     uploadData.append('ethic', this.normalize(quiz.ethic));
-    uploadData.append('code', quiz.code);
+    uploadData.append('code', quiz.chartCode);
     console.log(uploadData.get('image'));
     return this.http.post<any>('http://localhost:8000/api/quiz', uploadData);
   }
