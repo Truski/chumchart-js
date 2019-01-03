@@ -14,10 +14,14 @@ export class QuizService {
     const uploadData = new FormData();
     uploadData.append('image', quiz.image, quiz.image.name);
     uploadData.append('name', quiz.name);
-    uploadData.append('moral', quiz.moral);
-    uploadData.append('ethic', quiz.ethic);
+    uploadData.append('moral', this.normalize(quiz.moral));
+    uploadData.append('ethic', this.normalize(quiz.ethic));
     uploadData.append('code', quiz.code);
     console.log(uploadData.get('image'));
     return this.http.post<any>('http://localhost:8000/api/quiz', uploadData);
+  }
+
+  normalize(score: number): string {
+    return '' + (-1 * ((score * 2) / 15 - 1));
   }
 }
