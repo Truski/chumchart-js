@@ -14,5 +14,9 @@
       <a (click)="onClickJoinExisting()" class="button is-light is-inverted is-outlined is-large is-secondary">Join
         Existing</a>
     </div>
+    <div *ngIf="showingInput">
+      <input [(ngModel)]="quizCode" class="input is-large is-rounded is-narrow" type="text" placeholder="Chart Code" autofocus/>
+      <a routerLink="/quiz" class="button is-light is-inverted is-outlined is-large">Start Quiz</a>
+    </div>
   </div>
 </div>

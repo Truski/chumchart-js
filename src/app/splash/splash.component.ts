@@ -7,13 +7,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SplashComponent implements OnInit {
 
+  showingInput = false;
+  quizCode: string;
+
   constructor() { }
 
   ngOnInit() {
   }
 
   onClickJoinExisting(): void {
-    alert('This is not a drill!');
+    this.showCodeInput();
+  }
+
+  showCodeInput(): void {
+    this.showingInput = true;
   }
 
 }

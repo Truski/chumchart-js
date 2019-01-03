@@ -1,4 +1,7 @@
 <div class="box has-text-centered">
+  <div *ngIf="inLoadingState()">
+    <img src="../../assets/img/loading.gif" />
+  </div>
   <div *ngIf="inNameState()">
     <h1 class="title is-2">
       What is your name?
@@ -25,16 +28,26 @@
     <h1 class="title is-3">Just upload an image of yourself!</h1>
     <div class="file is-boxed filebox">
       <label class="file-label">
-        <input class="file-input" type="file" (change)="onFileChanged($event)" />
+        <input class="file-input" type="file" accept="image/*" (change)="onFileChanged($event)" />
         <span class="file-cta">
           <span class="file-icon">
             <i class="fas fa-upload"></i>
           </span>
           <span class="file-label">
-            Choose a file…
+            Choose a file (5MB Max)…
           </span>
         </span>
       </label>
     </div>
+  </div>
+  <div *ngIf="inThanksState()">
+    <p>Thanks for completing the quiz!</p>
+    <h1 class="title is-4">You still need {{peopleLeft}}/9 more friends to complete the chart!</h1>
+    <h2 class="subtitle is-5">Share this link with them:</h2>
+    <div class="box">
+      <pre>https://chumchart.com/{{chartCode}}</pre>
+    </div>
+    <p>Or tell them their friend code:</p>
+    <h2 class="title is-size-3">{{chartCode}}</h2>
   </div>
 </div>
