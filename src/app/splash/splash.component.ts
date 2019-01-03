@@ -12,6 +12,7 @@ export class SplashComponent implements OnInit {
   showingInput = false;
   quizCode: string;
   showingError = false;
+  showingLoading = false;
 
   constructor(private router: Router, private quizService: QuizService) { }
 
@@ -29,7 +30,9 @@ export class SplashComponent implements OnInit {
   onClickStartQuiz(): void {
     if (this.quizCode) {
       this.hideErrorNonexistentCode();
+      this.showLoading();
       this.quizService.getChartStatus(this.quizCode).subscribe(result => {
+        this.hideLoading();
         console.log(result);
         if (result.status === 'Nonexistent') {
           this.showErrorNonexistentCode();
@@ -40,6 +43,14 @@ export class SplashComponent implements OnInit {
         }
       });
     }
+  }
+
+  showLoading(): void {
+    this.showingLoading = true;
+  }
+
+  hideLoading(): void {
+    this.showingLoading = false;
   }
 
   hideErrorNonexistentCode(): void {
