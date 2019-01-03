@@ -15,6 +15,8 @@ enum State {
   Thanks
 }
 
+const randomNames = ['Susan', 'Dave', 'Megan', 'Brandon', ];
+
 @Component({
   selector: 'app-quiz',
   templateUrl: './quiz.component.html',
@@ -30,6 +32,7 @@ export class QuizComponent implements OnInit {
   moralTotal = 0;
   ethicTotal = 0;
   image: File;
+  placeholderName: string;
 
   peopleLeft: Number;
   chartCode: string;
@@ -41,7 +44,7 @@ export class QuizComponent implements OnInit {
     private quizService: QuizService
   ) {
     this.chartCode = this.route.snapshot.paramMap.get('code');
-    console.log(this.chartCode);
+    this.placeholderName = randomNames[Math.floor(Math.random() * 4)];
   }
 
   ngOnInit() {
@@ -105,9 +108,9 @@ export class QuizComponent implements OnInit {
   }
 
   onFileChanged(event): void {
-    console.log(event.target.files[0]);
-    this.image = event.target.files[0];
     this.state = State.Loading;
+    this.image = event.target.files[0];
+
     this.quizService.uploadQuiz({
       name: this.name,
       moral: this.moralTotal,

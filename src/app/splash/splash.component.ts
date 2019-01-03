@@ -27,7 +27,9 @@ export class SplashComponent implements OnInit {
   }
 
   onClickStartQuiz(): void {
-    this.router.navigate(['quiz', this.quizCode]);
+    if (this.quizCode) {
+      this.router.navigate(['quiz', this.quizCode]);
+    }
   }
 
 }

@@ -4,11 +4,11 @@
   </div>
   <div *ngIf="inNameState()">
     <h1 class="title is-2">
-      What is your name?
+      What is your first name?
     </h1>
     <div class="field is-narrow">
       <div class="control">
-        <input [(ngModel)]="name" class="input is-large is-rounded" type="text" placeholder="Truski Jenkins" />
+        <input [(ngModel)]="name" class="input is-large is-rounded" type="text" placeholder="{{placeholderName}}" />
       </div>
     </div>
     <a (click)="onClickContinue()" class="button is-large is-primary">Continue</a>
