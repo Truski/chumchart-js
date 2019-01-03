@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SplashComponent } from './splash/splash.component';
 import { QuizComponent } from './quiz/quiz.component';
+import { ChartComponent } from './chart/chart.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SplashComponent,
-    QuizComponent
+    QuizComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
