@@ -1,3 +1,73 @@
-<p>
-  chart works!
-</p>
+<div *ngIf="status === 'Loading'">
+  <img src="../../assets/img/loading.gif" />
+</div>
+<div *ngIf="status === 'Chart'">
+  <h1 class="chart-title title is-1">
+    Your ChumChart
+  </h1>
+  <div class="bigflexcontainer">
+    <div class="smallflexcontainer">
+      <div class="flexkiddo" style="width:70px">
+        <!-- nothing -->
+      </div>
+      <div class="flexkiddo header">
+        Lawful
+      </div>
+      <div class="flexkiddo header">
+        Neutral
+      </div>
+      <div class="flexkiddo header">
+        Chaotic
+      </div>
+    </div>
+
+    <div class="smallflexcontainer">
+      <div class="flexkiddo header left">
+        Good
+      </div>
+      <div class="flexkiddo" id="c1">
+        <img src="../../assets/img/people/{{chart.lg}}" />
+      </div>
+      <div class="flexkiddo" id="c2">
+        <img src="../../assets/img/people/{{chart.ng}}" />
+      </div>
+      <div class="flexkiddo" id="c3">
+        <img src="../../assets/img/people/{{chart.cg}}" />
+      </div>
+    </div>
+
+    <div class="smallflexcontainer">
+      <div class="flexkiddo header left">
+        Neutral
+      </div>
+      <div class="flexkiddo" id="c4">
+        <img src="../../assets/img/people/{{chart.ln}}" />
+      </div>
+      <div class="flexkiddo" id="c5">
+        <img src="../../assets/img/people/{{chart.tn}}" />
+      </div>
+      <div class="flexkiddo" id="c6">
+        <img src="../../assets/img/people/{{chart.cn}}" />
+      </div>
+    </div>
+
+    <div class="smallflexcontainer">
+      <div class="flexkiddo header left">
+        Evil
+      </div>
+      <div class="flexkiddo" id="c7">
+        <img src="../../assets/img/people/{{chart.le}}" />
+      </div>
+      <div class="flexkiddo" id="c8">
+        <img src="../../assets/img/people/{{chart.ne}}" />
+      </div>
+      <div class="flexkiddo" id="c9">
+        <img src="../../assets/img/people/{{chart.ce}}" />
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="status === 'NotFound'">
+  <h1 class="title is-1">Chart not found :(</h1>
+  <h2 class="subtitle is-2"><a routerLink="/"><- Return Home</a></h2>
+</div>

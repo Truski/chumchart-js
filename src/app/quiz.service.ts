@@ -13,6 +13,11 @@ export class QuizService {
     return this.http.get<any>('http://localhost:8000/api/chartstatus/' + chartCode);
   }
 
+  getChart(chartCode: string): Observable<any> {
+    console.log('Getting chart');
+    return this.http.get<any>('http://localhost:8000/api/chart/' + chartCode);
+  }
+
   uploadQuiz(quiz): Observable<any> {
     const uploadData = new FormData();
     uploadData.append('image', quiz.image, quiz.image.name);

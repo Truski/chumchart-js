@@ -1,0 +1,54 @@
+.bigflexcontainer {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    padding:10px;
+}
+
+.smallflexcontainer {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    flex-direction: run;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.flexkiddo {
+    text-align: center;
+    font-size: 18pt;
+    padding: 10px;
+    flex-grow: 1;
+}
+
+.flexkiddo > img {
+    width: 100px;
+    height: 100px;
+}
+
+.header {
+    color: black;
+    width: 100px;
+    font-family: IMPACT;
+}
+
+.chart-title {
+    color: black;
+    font-family: IMPACT;
+    text-align: center;
+}
+
+.left {
+    text-align: right;
+    vertical-align: center;
+}
+
+#c1 { background-color: #FFFFFF}
+#c2 { background-color: #6C9ACC}
+#c3 { background-color: #3421CA}
+#c4 { background-color: #FF9494}
+#c5 { }
+#c6 { background-color: #471087}
+#c7 { background-color: #E80000}
+#c8 { background-color: #780001}
+#c9 { background-color: #000000}
