@@ -8,3 +8,8 @@
     display: block;
     margin: 1em 0;
 }
+
+.invalid {
+    margin-top: 1em;
+    display: inline-block;
+}

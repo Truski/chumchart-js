@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { routerNgProbeToken } from '@angular/router/src/router_module';
-import { QuizComponent } from '../quiz/quiz.component';
+import { QuizService } from '../quiz.service';
 
 @Component({
   selector: 'app-splash',
@@ -12,8 +11,9 @@ export class SplashComponent implements OnInit {
 
   showingInput = false;
   quizCode: string;
+  showingError = false;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private quizService: QuizService) { }
 
   ngOnInit() {
   }
@@ -28,8 +28,26 @@ export class SplashComponent implements OnInit {
 
   onClickStartQuiz(): void {
     if (this.quizCode) {
-      this.router.navigate(['quiz', this.quizCode]);
+      this.hideErrorNonexistentCode();
+      this.quizService.getChartStatus(this.quizCode).subscribe(result => {
+        console.log(result);
+        if (result.status === 'Nonexistent') {
+          this.showErrorNonexistentCode();
+        } else if (result.status === 'Incomplete') {
+          this.router.navigate(['quiz', this.quizCode]);
+        } else if (result.status === 'Complete') {
+          this.router.navigate(['chart', this.quizCode]);
+        }
+      });
     }
+  }
+
+  hideErrorNonexistentCode(): void {
+    this.showingError = false;
+  }
+
+  showErrorNonexistentCode(): void {
+    this.showingError = true;
   }
 
 }

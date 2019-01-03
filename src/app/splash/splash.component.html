@@ -17,6 +17,11 @@
     <div *ngIf="showingInput">
       <input [(ngModel)]="quizCode" class="codeinput input is-large is-rounded is-narrow" type="text" autofocus maxlength="5" placeholder="Chart Code" autofocus/>
       <a (click)="onClickStartQuiz()" class="button is-light is-inverted is-outlined is-large">Start Quiz</a>
+      <div *ngIf="showingError">
+        <div class="invalid notification is-danger">
+          Invalid Chart Code!
+        </div>
+      </div>
     </div>
   </div>
 </div>

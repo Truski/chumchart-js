@@ -9,6 +9,10 @@ export class QuizService {
 
   constructor(private http: HttpClient) { }
 
+  getChartStatus(chartCode: string): Observable<any> {
+    return this.http.get<any>('http://localhost:8000/api/chartstatus/' + chartCode);
+  }
+
   uploadQuiz(quiz): Observable<any> {
     const uploadData = new FormData();
     uploadData.append('image', quiz.image, quiz.image.name);
