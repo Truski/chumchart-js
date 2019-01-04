@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { QuizService } from '../quiz.service';
 
 @Component({
@@ -14,9 +14,13 @@ export class SplashComponent implements OnInit {
   showingError = false;
   showingLoading = false;
 
-  constructor(private router: Router, private quizService: QuizService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private quizService: QuizService) { }
 
   ngOnInit() {
+    if (this.route.snapshot.paramMap.get('code')) {
+      this.quizCode = this.route.snapshot.paramMap.get('code');
+      this.showingInput = true;
+    }
   }
 
   onClickJoinExisting(): void {

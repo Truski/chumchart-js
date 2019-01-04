@@ -6,6 +6,7 @@ import { ChartComponent } from './chart/chart.component';
 
 const routes: Routes = [
   { path: '', component: SplashComponent },
+  { path: ':code', component: SplashComponent },
   { path: 'quiz', component: QuizComponent },
   { path: 'quiz/:code', component: QuizComponent },
   { path: 'chart/:code', component: ChartComponent }
